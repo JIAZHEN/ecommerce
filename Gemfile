@@ -10,7 +10,7 @@ gem 'turbolinks',           '2.3.0'
 gem 'jbuilder',             '2.2.3'
 gem 'rails-html-sanitizer', '1.0.1'
 gem 'sdoc',                 '0.4.0', group: :doc
-gem 'haml'
+gem 'haml-rails',           '0.5.3'
 
 group :development, :test do
   gem 'sqlite3',                '1.3.9'
@@ -19,6 +19,8 @@ group :development, :test do
   gem 'spring',                 '1.1.3'
   gem 'spring-commands-rspec',  '1.0.2'
   gem 'rspec-rails',            '3.1.0'
+  gem 'capybara',               '2.4.4'
+  gem 'factory_girl_rails',     '4.5.0'
 end
 
 group :test do

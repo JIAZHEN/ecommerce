@@ -13,6 +13,7 @@ describe User, :type => :model do
   it { is_expected.to respond_to(:password) }
   it { is_expected.to respond_to(:password_digest) }
   it { is_expected.to respond_to(:password_confirmation) }
+  it { is_expected.to respond_to(:remember_digest) }
 
   describe "#email" do
     context "is not present" do

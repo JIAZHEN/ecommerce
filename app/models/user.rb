@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  attr_accessor :remember_token
 
   before_save { self.email = email.downcase }
 
@@ -12,4 +13,18 @@ class User < ActiveRecord::Base
 
   has_secure_password
   validates :password, length: { minimum: 6 }
+
+
+  def User.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def remember
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, remember_token)
+  end
+
+  def authenticated?(remember_token)
+    remember_digest == remember_token
+  end
 end
