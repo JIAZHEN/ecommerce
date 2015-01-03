@@ -76,4 +76,17 @@ describe User, :type => :model do
       end
     end
   end
+
+  describe "#remember" do
+    let(:new_token) { "NEW_TOKEN" }
+    before do
+      allow(described_class).to receive(:new_token).and_return(new_token)
+      user.save
+      user.remember
+    end
+
+    it "updates the token" do
+      expect(user.remember_token).to eq(new_token)
+    end
+  end
 end
