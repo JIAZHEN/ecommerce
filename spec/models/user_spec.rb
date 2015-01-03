@@ -86,7 +86,7 @@ describe User, :type => :model do
     end
 
     it "updates the token" do
-      expect(user.remember_token).to eq(new_token)
+      expect(User.find(user.id).remember_digest).to eq(new_token)
     end
   end
 end
