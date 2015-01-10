@@ -1,0 +1,66 @@
+/ start header
+.top_bg
+  .wrap
+    .header
+      .logo
+        %a{:href => root_path}
+          %img{:alt => "", :src => asset_path("logo.png")}/
+      .log_reg
+        %ul
+          %li
+            %a{:href => "login.html"} Login
+          %span.log or
+          %li
+            %a{:href => "register.html"} Register
+          .clear
+      .web_search
+        %form
+          %input{:onblur => "if (this.value == '') {this.value = '';}", :onfocus => "this.value = '';", :type => "text", :value => ""}/
+          %input{:type => "submit", :value => " "}/
+      .clear
+/ start header_btm
+.wrap
+  .header_btm
+    .menu
+      %ul
+        %li.active
+          %a{:href => root_path } Home
+        %li
+          %a{:href => products_path} products
+        %li
+          %a{:href => about_path} about
+        %li
+          %a{:href => root_path} pages
+        %li
+          %a{:href => "blog.html"} blog
+        %li
+          %a{:href => contact_path} Contact
+        .clear
+    #smart_nav
+      %a.navicon{:href => "#menu-left"}
+    %nav#menu-left
+      %ul
+        %li
+          %a{:href => root_path} Home
+        %li
+          %a{:href => products_path} products
+        %li
+          %a{:href => about_path} about
+        %li
+          %a{:href => root_path} pages
+        %li
+          %a{:href => "blog.html"} blog
+        %li
+          %a{:href => contact_path} Contact
+        .clear
+    .header_right
+      %ul
+        %li
+          %a{:href => "#"}
+            %i.art
+            %span.color1 30
+        %li
+          %a{:href => "#"}
+            %i.cart
+            %span 0
+    .clear
