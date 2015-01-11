@@ -1,5 +1,188 @@
 - content_for :head do
-  = stylesheet_link_tag     "productviewgallery"
-  = javascript_include_tag  "cloud-zoom.1.0.3.min"
   = javascript_include_tag  "jquery.fancybox.pack"
-  / = javascript_include_tag  "productviewgallery"
+
+.main_bg
+  .wrap
+    .main
+      / start content
+      .single
+        / start span1_of_1
+        .left_content
+          .span1_of_1
+            / start product_slider
+            .product-view
+              .product-essential
+                .product-img-box
+                  .more-views
+                    .more-views-container
+                      %ul
+                        %li
+                          %a.cs-fancybox-thumbs{:alt => "", "data-fancybox-group" => "thumb", :href => "", :title => ""}
+                            %img{:alt => "", :src => "", :src_main => "", :title => ""}/
+                        %li
+                          %a.cs-fancybox-thumbs{:alt => "", "data-fancybox-group" => "thumb", :href => "", :title => ""}
+                            %img{:alt => "", :src => "", :src_main => "", :title => ""}/
+                        %li
+                          %a.cs-fancybox-thumbs{:alt => "", "data-fancybox-group" => "thumb", :href => "", :title => ""}
+                            %img{:alt => "", :src => "", :src_main => "", :title => ""}/
+                        %li
+                          %a.cs-fancybox-thumbs{:alt => "", "data-fancybox-group" => "thumb", :href => "", :title => ""}
+                            %img{:alt => "", :src => "", :src_main => "", :title => ""}/
+                        %li
+                          %a.cs-fancybox-thumbs{:alt => "", "data-fancybox-group" => "thumb", :href => "", :title => ""}
+                            %img{:alt => "", :src => "", :src_main => "", :title => ""}/
+                  .product-image
+                    %a.cs-fancybox-thumbs.cloud-zoom{:alt => "Women Shorts", "data-fancybox-group" => "thumb", :href => asset_path("0001-2.jpg"), :rel => "adjustX:30,adjustY:0,position:'right',tint:'#202020',tintOpacity:0.5,smoothMove:2,showTitle:true,titleOpacity:0.5", :title => "Women Shorts"}
+                      %img{:alt => "Women Shorts", :src => asset_path("0001-2.jpg"), :title => "Women Shorts"}/
+
+          / start span1_of_1
+          .span1_of_1_des
+            .desc1
+              %h3 Lorem ipsum dolor sit amet laoret.
+              %h5
+                Rs. 499
+                %span 599
+                %a{:href => "#"} click for offer
+              .available
+                .btn_form
+                  %form
+                    %input{:title => "", :type => "submit", :value => "buy now"}/
+                %span
+                  %a{:href => "#"} login to save in wishlist
+                %p It is a long established fact that a reader will be distracted by the readable contentContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from of a page when looking at its layout.
+              .share-desc
+                .share
+                  %h4 Share Product :
+                  %ul.share_nav
+                    %li
+                      %a{:href => "#"}
+                        %img{:src => asset_path("facebook.png"), :title => "facebook"}/
+                    %li
+                      %a{:href => "#"}
+                        %img{:src => asset_path("twitter.png"), :title => "Twiiter"}/
+                    %li
+                      %a{:href => "#"}
+                        %img{:src => asset_path("rss.png"), :title => "Rss"}/
+                    %li
+                      %a{:href => "#"}
+                        %img{:src => asset_path("gpluse.png"), :title => "Google+"}/
+                .clear
+          .clear
+          / start left content_bottom
+          .left_content_btm
+            %p.para Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            / start tabs
+            %section.tabs
+              %input#tab-1.tab-selector-1{:checked => "checked", :name => "radio-set", :type => "radio"}/
+              %label.tab-label-1{:for => "tab-1"} overview
+              %input#tab-2.tab-selector-2{:name => "radio-set", :type => "radio"}/
+              %label.tab-label-2{:for => "tab-2"} consumer
+              %input#tab-3.tab-selector-3{:name => "radio-set", :type => "radio"}/
+              %label.tab-label-3{:for => "tab-3"} semiconductor
+              .clear-shadow
+              .content
+                .content-1
+                  %p.para.top
+                    %span LOREM IPSUM
+                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined
+                  %ul
+                    %li Research
+                    %li Design and Development
+                    %li Porting and Optimization
+                    %li System integration
+                    %li Verification, Validation and Testing
+                    %li Maintenance and Support
+                  .clear
+                .content-2
+                  %p.para
+                    %span WELCOME
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections
+                  %ul.qua_nav
+                    %li Multimedia Systems
+                    %li Digital media adapters
+                    %li Set top boxes for HDTV and IPTV Player applications on various Operating Systems and Hardware Platforms
+                .content-3
+                  %p.para.top
+                    %span LOREM IPSUM
+                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined
+                  %ul
+                    %li Research
+                    %li Design and Development
+                    %li Porting and Optimization
+                    %li System integration
+                    %li Verification, Validation and Testing
+                    %li Maintenance and Support
+                  .clear
+            / end tabs
+          / end left content_bottom
+        / start left_sidebar
+        .left_sidebar
+          %ul.det_nav
+            %li
+              %a{:href => "#"} accessories
+            %li
+              %a{:href => "#"} safety and security
+            %li
+              %a{:href => "#"} specials
+            %li
+              %a{:href => "#"} accessories
+            %li
+              %a{:href => "#"} new products
+            %li
+              %a{:href => "#"} safety and security
+          %h4 recent products
+          .left_products
+            .left_img
+              %img{:alt => "", :src => asset_path("det_pic1.jpg")}/
+            .left_text
+              %p
+                %a{:href => "#"} Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+              %span.line $72.00
+              %span $52.00
+            .clear
+          .left_products
+            .left_img
+              %img{:alt => "", :src => asset_path("det_pic2.jpg")}/
+            .left_text
+              %p
+                %a{:href => "#"} Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+              %span.line $86.00
+              %span $83.00
+            .clear
+          .left_products
+            .left_img
+              %img{:alt => "", :src => asset_path("det_pic1.jpg")}/
+            .left_text
+              %p
+                %a{:href => "#"} Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+              %span.line $76.00
+              %span $75.00
+            .clear
+          %h4 related colors
+          %ul.color-list
+            %li
+              %a{:href => "#"}
+                %span.color2
+                %p.red Green
+            %li
+              %a{:href => "#"}
+                %span.color3
+                %p.red Blue
+            %li
+              %a{:href => "#"}
+                %span.color4
+                %p.red Yellow
+            %li
+              %a{:href => "#"}
+                %span.color5
+                %p.red Violet
+            %li
+              %a{:href => "#"}
+                %span.color6
+                %p.red Orange
+            %li
+              %a{:href => "#"}
+                %span.color7
+                %p.red Gray
+        .clear
+      / end content
