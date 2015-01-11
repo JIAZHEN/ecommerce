@@ -2,10 +2,31 @@
 %html
   %head
     %title Ecommerce
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %link{:href => "http://fonts.googleapis.com/css?family=Maven+Pro:400,900,700,500", :rel => "stylesheet", :type => "text/css"}/
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+
+    = javascript_include_tag "jquery.mmenu"
+    :javascript
+      //  The menu on the left
+      $(function() {
+        $('nav#menu-left').mmenu();
+      });
+    = yield(:head)
+
+    = javascript_include_tag "easing"
+    = javascript_include_tag "move-top"
+    :javascript
+      jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+          event.preventDefault();
+          $('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+        });
+      });
     = csrf_meta_tags
   %body
     - flash.each do |message_type, message|
       %div{:class => "alert alert-#{message_type}"}= message
+    = render "shared/header"
     = yield
+    = render "shared/footer"

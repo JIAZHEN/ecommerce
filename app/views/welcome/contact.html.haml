@@ -1,0 +1,55 @@
+.main_bg
+  .wrap
+    .main
+      .contact
+        .contact_left
+          .contact_info
+            %h3 Find Us Here
+            .map
+              %iframe{:frameborder => "0", :height => "175", :marginheight => "0", :marginwidth => "0", :scrolling => "no", :src => "https://maps.google.co.in/maps?f=q&source=s_q&hl=en&geocode=&q=Lighthouse+Point,+FL,+United+States&aq=4&oq=light&sll=26.275636,-80.087265&sspn=0.04941,0.104628&ie=UTF8&hq=&hnear=Lighthouse+Point,+Broward,+Florida,+United+States&t=m&z=14&ll=26.275636,-80.087265&output=embed", :width => "100%"}
+              %br/
+              %small
+                %a{:href => "https://maps.google.co.in/maps?f=q&source=embed&hl=en&geocode=&q=Lighthouse+Point,+FL,+United+States&aq=4&oq=light&sll=26.275636,-80.087265&sspn=0.04941,0.104628&ie=UTF8&hq=&hnear=Lighthouse+Point,+Broward,+Florida,+United+States&t=m&z=14&ll=26.275636,-80.087265", :style => "color:#242424;text-shadow:0 1px 0 #ffffff; text-align:left;font-size:12px;padding: 5px;"} View Larger Map
+          .company_address
+            %h3 Company Information :
+            %p 500 Lorem Ipsum Dolor Sit,
+            %p 22-56-2-9 Sit Amet, Lorem,
+            %p USA
+            %p Phone:(00) 222 666 444
+            %p Fax: (000) 000 00 00 0
+            %p
+              Email:
+              %a{:href => "mailto:info@mycompany.com"} info(at)mycompany.com
+            %p
+              Follow on:
+              = succeed "," do
+                %a{:href => "#"} Facebook
+              %a{:href => "#"} Twitter
+        .contact_right
+          .contact-form
+            %h3 Contact Us
+            %form{:action => "contact-post.html", :method => "post"}
+              %div
+                %span
+                  %label NAME
+                %span
+                  %input.textbox{:name => "userName", :type => "text"}/
+              %div
+                %span
+                  %label E-MAIL
+                %span
+                  %input.textbox{:name => "userEmail", :type => "text"}/
+              %div
+                %span
+                  %label MOBILE
+                %span
+                  %input.textbox{:name => "userPhone", :type => "text"}/
+              %div
+                %span
+                  %label SUBJECT
+                %span
+                  %textarea{:name => "userMsg"}
+              %div
+                %span
+                  %input{:type => "submit", :value => "submit us"}/
+        .clear
