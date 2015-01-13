@@ -6,8 +6,8 @@ RSpec.describe Category, :type => :model do
 
   it { is_expected.to respond_to(:name) }
   it { is_expected.to respond_to(:parent_id) }
-  it { is_expected.to respond_to(:subs) }
-  it { is_expected.to respond_to(:parent) }
+  it { is_expected.to respond_to(:lft) }
+  it { is_expected.to respond_to(:rgt) }
 
   describe "#name" do
     context "is not present" do
@@ -16,18 +16,18 @@ RSpec.describe Category, :type => :model do
     end
   end
 
-  describe "#subs" do
+  describe "#descendants" do
     context "without any sub categories" do
       let(:category) { create(:category) }
       it "returns empty collection" do
-        expect(category.subs).to be_empty
+        expect(category.descendants).to be_empty
       end
     end
 
     context "with sub categories" do
-      let(:category) { create(:categ_with_subs) }
+      let(:category) { create(:categ_with_descendants) }
       it "returns all sub categories" do
-        expect(category.subs).to eq(Category.where(parent_id: category.id))
+        expect(category.descendants).to match_array(Category.where(parent_id: category.id))
       end
     end
   end
@@ -36,7 +36,7 @@ RSpec.describe Category, :type => :model do
     context "without any super category" do
       let(:category) { create(:category) }
       it "returns nil" do
-        expect(category.subs).to be_empty
+        expect(category.parent).to be_nil
       end
     end
 

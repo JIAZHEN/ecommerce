@@ -11,6 +11,7 @@ gem "jbuilder",             "2.2.3"
 gem "rails-html-sanitizer", "1.0.1"
 gem "sdoc",                 "0.4.0", group: :doc
 gem "haml-rails",           "0.5.3"
+gem "awesome_nested_set"
 
 group :development, :test do
   gem "sqlite3",                "1.3.9"
