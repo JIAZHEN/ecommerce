@@ -8,6 +8,8 @@ RSpec.describe Category, :type => :model do
   it { is_expected.to respond_to(:parent_id) }
   it { is_expected.to respond_to(:subs) }
   it { is_expected.to respond_to(:parent) }
+  it { is_expected.to respond_to(:lft) }
+  it { is_expected.to respond_to(:rgt) }
 
   describe "#name" do
     context "is not present" do
