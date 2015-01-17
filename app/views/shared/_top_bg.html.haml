@@ -1,0 +1,7 @@
+- if yield(:bg_title).present?
+  .top_bg
+    .wrap
+      .main_top
+        %h4.style= yield(:bg_title)
+        - flash.each do |message_type, message|
+          %div{:class => "#{message_type} message"}= message

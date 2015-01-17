@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   get   "about"   => "welcome#about"
   get   "contact" => "welcome#contact"
 
+  resources :sessions, only: [:new, :create, :destroy]
   resources :users
-  get   "login"   => "sessions#new"
-  post  "login"   => "sessions#create"
+  get     "login"     => "sessions#new"
+  post    "login"     => "sessions#create"
+  delete  "logout"    => "sessions#destroy"
+  get     "register"  => "users#new"
 
   resources :products,    only: [:show, :index]
 

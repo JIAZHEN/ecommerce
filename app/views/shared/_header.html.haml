@@ -7,11 +7,15 @@
           %img{:alt => "", :src => asset_path("logo.png")}/
       .log_reg
         %ul
-          %li
-            %a{:href => "login.html"} Login
-          %span.log or
-          %li
-            %a{:href => "register.html"} Register
+          - if logged_in?
+            %li
+              %a{:href => logout_path, "data-method" => "delete"} Logout
+          - else
+            %li
+              %a{:href => login_path} Login
+            %span.log or
+            %li
+              %a{:href => register_path} Register
           .clear
       .web_search
         %form
