@@ -25,6 +25,20 @@ RSpec.describe SessionsHelper, :type => :helper do
     end
   end
 
+  describe "#forget" do
+    let(:token) { "TOKEN" }
+    before do
+      allow(User).to receive(:new_token).and_return(token)
+      remember user
+      forget user
+    end
+
+    it "doesn't record the user id and token in the cookies" do
+      expect(cookies[:user_id]).to be_nil
+      expect(cookies[:remember_token]).to be_nil
+    end
+  end
+
   describe "#current_user" do
     context "when user doesn't in session and cookies" do
       it "returns nil" do

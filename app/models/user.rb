@@ -27,4 +27,8 @@ class User < ActiveRecord::Base
   def authenticated?(remember_token)
     remember_digest == remember_token
   end
+
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
 end

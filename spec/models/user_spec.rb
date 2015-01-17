@@ -14,6 +14,7 @@ describe User, :type => :model do
   it { is_expected.to respond_to(:password_digest) }
   it { is_expected.to respond_to(:password_confirmation) }
   it { is_expected.to respond_to(:remember_digest) }
+  it { is_expected.to respond_to(:forget) }
 
   describe "#email" do
     context "is not present" do
@@ -87,6 +88,13 @@ describe User, :type => :model do
 
     it "updates the token" do
       expect(User.find(user.id).remember_digest).to eq(new_token)
+    end
+
+    describe "then forget the token" do
+      before { user.forget }
+      it "sets the token to be nil" do
+        expect(User.find(user.id).remember_digest).to be_nil
+      end
     end
   end
 end

@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe "Login", :type => :view do
 
@@ -11,15 +11,25 @@ describe "Login", :type => :view do
     visit login_path
     fill_in   "Email",    with: email
     fill_in   "Password", with: password
-    click_on  "Login"
+    click_button  "Login"
   end
 
   describe "with correct details" do
-    it { is_expected.to have_content('create') }
+    it { is_expected.to have_link("Logout") }
   end
 
   describe "with incorrect password" do
     let(:password) { "incorrect" }
-    it { is_expected.to have_content('Invalid email/password combination') }
+    it { is_expected.to have_content("Invalid email/password combination") }
+  end
+
+  describe "then logout" do
+    before { click_on "Logout" }
+    it { is_expected.to have_link("Login") }
+  end
+
+  describe "then visit login again" do
+    before { visit login_path }
+    it { is_expected.not_to have_content("Create An Account Or Login") }
   end
 end

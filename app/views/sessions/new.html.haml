@@ -63,7 +63,7 @@
             %a{:href => "#"}
               .reg_fb
                 %img{:alt => "", :src => asset_path("facebook.png")}/
-                %i sign in using Facebook
+                %i Login using Facebook
                 .clear
             .registration_form
               / Form
@@ -75,7 +75,7 @@
                   %label
                     = f.password_field :password, tabindex: "4", placeholder: "Password", required: "", type: "password"
                 %div
-                  = f.submit "sign in", id: "register-submit"
+                  = f.submit "Login", id: "register-submit"
                 .forget
                   %a{:href => "#"} forgot your password
               / /Form
