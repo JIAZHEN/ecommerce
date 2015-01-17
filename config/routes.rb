@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get     "login"     => "sessions#new"
   post    "login"     => "sessions#create"
   delete  "logout"    => "sessions#destroy"
+  get     "register"  => "users#new"
 
   resources :products,    only: [:show, :index]
 

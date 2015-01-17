@@ -30,6 +30,6 @@ describe "Login", :type => :view do
 
   describe "then visit login again" do
     before { visit login_path }
-    it { is_expected.not_to have_content("Create An Account Or Login") }
+    it { is_expected.not_to have_css(".main_top") }
   end
 end

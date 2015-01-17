@@ -1,16 +1,10 @@
-- provide(:bg_title, "create an account or login")
+- provide(:bg_title, "login or create an account")
 
 .main_bg
   .wrap
     .main
       .login_left
-        %h3 new customers
-        %p By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping address, view and track your orders in your accoung and more.
-        .btn
-          %form
-            %input{:onclick => "location.href='#{register_path}';", :type => "button", :value => "create an account"}/
-      .login_left
-        %h3 registered customers
+        %h3 login customers
         %p if you have any account with us, please log in.
         / start registration
         .registration
@@ -63,7 +57,7 @@
             %a{:href => "#"}
               .reg_fb
                 %img{:alt => "", :src => asset_path("facebook.png")}/
-                %i Login using Facebook
+                %i sign in using Facebook
                 .clear
             .registration_form
               / Form
@@ -78,6 +72,39 @@
                   = f.submit "Login", id: "register-submit"
                 .forget
                   %a{:href => "#"} forgot your password
-              / /Form
         / end registration
+      .login_left
+        %h3 register new customers
+        %p By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping address, view and track your orders in your accoung and more.
+        .registration_left
+          %a{:href => "#"}
+            .reg_fb
+              %img{:alt => "", :src => asset_path("facebook.png")}/
+              %i register using Facebook
+              .clear
+          .registration_form
+            / Form
+            = form_for(@user, html: {id: "registration_form"}) do |f|
+              = render "shared/error_message", object: f.object
+              %div
+                %label
+                  = f.text_field :name, tabindex: "1", placeholder: "Name", required: "", type: "text"
+              %div
+                %label
+                  = f.text_field :email, tabindex: "2", placeholder: "Email", required: "", type: "email"
+              %div
+                %label
+                  = f.password_field :password, tabindex: "3", placeholder: "Password", required: "", type: "password"
+              %div
+                %label
+                  = f.password_field :password_confirmation, tabindex: "4", placeholder: "Retype password", required: "", type: "password"
+              %div
+                = f.submit "create an account", id: "register-submit"
+              .sky_form
+                %label.checkbox
+                  %input{:name => "checkbox", :type => "checkbox"}/
+                  %i
+                    i agree to
+                    %a.terms{:href => "#"} terms of service
+            / /Form
       .clear
