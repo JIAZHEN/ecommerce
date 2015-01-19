@@ -1,5 +1,9 @@
 FactoryGirl.define do
 
+  factory :brand do
+    sequence(:name) { |n| "brand_#{n}" }
+  end
+
   factory :category do
     sequence(:name) { |n| "category_#{n}" }
 
