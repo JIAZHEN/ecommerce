@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
-  validates :name, presence: true, numericality: true,
-                   length: { minimum: 6 }
+  belongs_to :category
+
+  validates :name, presence: true, length: { minimum: 6 }
+  validates :price, numericality: true
 end

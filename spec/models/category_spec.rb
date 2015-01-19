@@ -8,6 +8,7 @@ RSpec.describe Category, :type => :model do
   it { is_expected.to respond_to(:parent_id) }
   it { is_expected.to respond_to(:lft) }
   it { is_expected.to respond_to(:rgt) }
+  it { is_expected.to respond_to(:products) }
 
   describe "#name" do
     context "is not present" do
@@ -46,6 +47,13 @@ RSpec.describe Category, :type => :model do
       it "returns parent category" do
         expect(category.parent).to eq(Category.find_by(id: category.parent_id))
       end
+    end
+  end
+
+  describe "#products" do
+    let(:category) { create(:categ_with_products) }
+    it "returns all associate products" do
+      expect(category.products).to match_array(Product.where(category_id: category.id))
     end
   end
 end

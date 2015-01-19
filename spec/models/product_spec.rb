@@ -21,6 +21,7 @@ RSpec.describe Product, :type => :model do
   it { is_expected.to respond_to(:description) }
   it { is_expected.to respond_to(:description_markup) }
   it { is_expected.to respond_to(:product_type_id) }
+  it { is_expected.to respond_to(:category) }
 
   describe "#name" do
     context "is not present" do
@@ -38,6 +39,13 @@ RSpec.describe Product, :type => :model do
     context "is not number" do
       let(:price) { "a" }
       it { is_expected.not_to be_valid }
+    end
+  end
+
+  describe "#category" do
+    let(:product) { create(:product) }
+    it "returns correct association with category" do
+      expect(product.category).to eq(Category.find_by(id: product.category_id))
     end
   end
 
