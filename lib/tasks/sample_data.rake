@@ -1,10 +1,10 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
-    5.times { Category.create!(name: Faker::Company.name) }
-    3.times { Brand.create!(name: Faker::Commerce.department) }
-    categs = Category.take(5)
-    brands = Brand.take(5)
+    20.times { Category.create!(name: Faker::Company.name) }
+    20.times { Brand.create!(name: Faker::Commerce.department) }
+    categs = Category.take(20)
+    brands = Brand.take(20)
 
     3.times do
       categs.each do |categ|
