@@ -361,17 +361,13 @@ h4.style{
 	background: #999999;
 }
 .header_right ul li a > i{
+	margin: 0 10px;
 	width: 32px;
 	height: 32px;
 	display: inline-block;
 	vertical-align: middle;
 	transition: none;
-}
-.header_right ul li a > i.art{
-	background: url(art.png) no-repeat 4px 8px;
-}
-.header_right ul li a > i.cart{
-	background: url(cart.png) no-repeat 5px 8px;
+	color: rgb(109, 109, 109);
 }
 /* smart_nav */
 .navicon{
@@ -1684,7 +1680,7 @@ span.color7{
 .btn_form{
 	margin: 4% 0 2%;
 }
-.btn_form form input[type="submit"]{
+.btn_form form a{
 	cursor:pointer;
 	display: inline-block;
 	font-family: 'Maven Pro', sans-serif;
@@ -1705,7 +1701,7 @@ span.color7{
 	-moz-border-radius: 2px;
 	-o-border-radius: 2px;
 }
-.btn_form form input[type="submit"]:hover{
+.btn_form form a:hover{
 	background: #57C5A0;
 	border: 1px solid #57c5a0;
 }

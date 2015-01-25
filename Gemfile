@@ -14,6 +14,7 @@ gem "haml-rails",           "0.5.3"
 gem "awesome_nested_set"
 gem "redis"
 gem "hiredis"
+gem "font-awesome-rails"
 
 group :development, :test do
   gem "sqlite3",                "1.3.9"

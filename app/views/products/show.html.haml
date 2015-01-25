@@ -45,9 +45,10 @@
               .available
                 .btn_form
                   %form
-                    %input{:title => "", :type => "submit", :value => "buy now"}/
-                %span
-                  %a{:href => "#"} login to save in wishlist
+                    = link_to "", class: "button", data: {target: @cart_action, addUrl: add_to_cart_path(@product), removeUrl: remove_from_cart_path(@product)} do
+                      %i.fi-shopping-cart
+                      %span= @cart_action
+                      Cart
                 %p= @product.description_markup
               .share-desc
                 .share
