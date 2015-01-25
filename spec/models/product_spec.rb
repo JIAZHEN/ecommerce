@@ -8,10 +8,12 @@ RSpec.describe Product, :type => :model do
   let(:description) { "sample desc" }
   let(:description_markup) { "desc markup" }
   let(:product_type_id) { 3 }
-  let(:product) { Product.new(name: name, price: price, brand_id: brand_id,
-                              category_id: category_id, description: description,
-                              description_markup: description_markup, product_type_id: product_type_id)
-                }
+  let(:product) do
+    Product.new(name: name, price: price, brand_id: brand_id,
+      category_id: category_id, description: description,
+      description_markup: description_markup,
+      product_type_id: product_type_id)
+  end
   subject { product }
 
   it { is_expected.to respond_to(:name) }
@@ -22,6 +24,7 @@ RSpec.describe Product, :type => :model do
   it { is_expected.to respond_to(:description_markup) }
   it { is_expected.to respond_to(:product_type_id) }
   it { is_expected.to respond_to(:category) }
+  it { is_expected.to respond_to(:cart_action) }
 
   describe "#name" do
     context "is not present" do

@@ -1,2 +1,41 @@
-%h1 Carts#show
-%p Find me in app/views/carts/show.html.haml
+- content_for :head do
+  = stylesheet_link_tag "carts"
+
+- provide(:bg_title, "shopping cart")
+
+/ start main
+.main_bg
+  .wrap
+    .main
+      %table#cart
+        %thead
+          %tr
+            %th.first Photo
+            %th.second Qty
+            %th.third Product
+            %th.fourth Line Total
+            %th.fifth Remove
+        %tbody
+          / shopping cart contents
+          - @cart_products.each do |product|
+            %tr.productitm{:id => product.id}
+              %td= product.id
+              %td
+                %input.qtyinput{:max => "99", :min => "1", :type => "number", :value => @cart_hash[product.id]}/
+              %td= product.name
+              %td= "£#{product.price}"
+              %td
+                %a.button{"data-product_id" => product.id, "data-removeurl" => remove_from_cart_path(product), :href => "", :confirm => "Are you sure you want to do that?"}
+                  %i.fa.fa-times
+
+          %tr.totalprice
+            %td.light Total:
+            %td{:colspan => "2"}
+            %td{:colspan => "2"}
+              %span.simpleCart_grandTotal= @cart_total
+          / checkout btn
+          %tr.checkoutrow
+            %td.checkout{:colspan => "5"}
+              .read_more
+                %a.simpleCart_checkout{:href => "javascript:;"} Checkout
+

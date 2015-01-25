@@ -4,5 +4,6 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find_by(id: params[:id])
+    @cart_action = @product.cart_action current_user.try :id
   end
 end
