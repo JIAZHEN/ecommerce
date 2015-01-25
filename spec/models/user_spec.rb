@@ -15,6 +15,7 @@ describe User, :type => :model do
   it { is_expected.to respond_to(:password_confirmation) }
   it { is_expected.to respond_to(:remember_digest) }
   it { is_expected.to respond_to(:forget) }
+  it { is_expected.to respond_to(:cart_count) }
 
   describe "#email" do
     context "is not present" do

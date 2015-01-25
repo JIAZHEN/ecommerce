@@ -60,7 +60,7 @@
             %i.art
             %span.color1 30
         %li
-          %a{:href => "#"}
+          %a{:href => cart_path}
             %i.cart
-            %span 0
+            %span=  logged_in? ? current_user.cart_count : 0
     .clear

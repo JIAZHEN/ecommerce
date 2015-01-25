@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
 
+  resource :cart, only: [:show] do
+    put "add/:product_id", to: "carts#show", as: :add_to
+    put "remove/:product_id", to: "carts#remove", as: :remove_from
+  end
+
   root  :to       => "welcome#index"
   get   "about"   => "welcome#about"
   get   "contact" => "welcome#contact"
 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users
+  resources :users, only: [:new, :create]
   get     "login"     => "sessions#new"
   post    "login"     => "sessions#create"
   delete  "logout"    => "sessions#destroy"
