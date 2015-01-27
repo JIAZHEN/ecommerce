@@ -1705,6 +1705,41 @@ span.color7{
 	background: #57C5A0;
 	border: 1px solid #57c5a0;
 }
+
+#qty_selector {
+    margin-bottom: 5%;
+}
+
+.qty {
+    width: 40px;
+    height: 25px;
+    text-align: center;
+}
+input.qtyplus {
+	color: #ffffff;
+	background: black;
+	cursor:pointer;
+	width:10%;
+	height: 30px;
+	border:1px solid #e1e1e1;
+	text-align:center;
+	&:hover {
+		background: #57C5A0;
+	}
+}
+input.qtyminus {
+	color: #ffffff;
+	background: black;
+	cursor:pointer;
+	width:10%;
+	height: 30px;
+	border:1px solid #e1e1e1;
+	text-align:center;
+	&:hover {
+		background: #57C5A0;
+	}
+}
+
 /* end description */
 /* start left_content_btm */
 .left_content_btm{

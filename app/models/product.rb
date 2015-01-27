@@ -6,6 +6,6 @@ class Product < ActiveRecord::Base
   validates :price, numericality: true
 
   def cart_action(current_user_id)
-    $redis.sismember("cart#{current_user_id}", id) ? "Remove from" : "Add to"
+    $redis.hget("cart#{current_user_id}", id) ? "Remove from" : "Add to"
   end
 end

@@ -14,30 +14,25 @@
             %th.second Qty
             %th.third Product
             %th.fourth Line Total
-            %th.fifth
+            %th.fifth Remove
         %tbody
           / shopping cart contents
-          - @cart_products.each do |cart_product|
-            %tr.productitm
-              %td= cart_product.id
+          - @cart_products.each do |product|
+            %tr.productitm{:id => product.id}
+              %td= product.id
               %td
-                %input.qtyinput{:max => "99", :min => "0", :type => "number", :value => "1"}/
-              %td= cart_product.name
-              %td= "£#{cart_product.price}"
+                %input.qtyinput{:max => "99", :min => "1", :type => "number", :value => @cart_hash[product.id]}/
+              %td= product.name
+              %td= "£#{product.price}"
               %td
-                %i.fa.fa-times
+                %a.button{"data-product_id" => product.id, "data-removeurl" => remove_from_cart_path(product), :href => "", :confirm => "Are you sure you want to do that?"}
+                  %i.fa.fa-times
 
-          / tax + subtotal
-          %tr.extracosts
-            %td.light Shipping & Tax
-            %td.light{:colspan => "2"}
-            %td $35.00
-            %td
           %tr.totalprice
             %td.light Total:
             %td{:colspan => "2"}
             %td{:colspan => "2"}
-              %span.simpleCart_grandTotal
+              %span.simpleCart_grandTotal= @cart_total
           / checkout btn
           %tr.checkoutrow
             %td.checkout{:colspan => "5"}

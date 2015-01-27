@@ -33,6 +33,6 @@ class User < ActiveRecord::Base
   end
 
   def cart_count
-    $redis.scard "cart#{id}"
+    $redis.hlen "cart#{id}"
   end
 end
