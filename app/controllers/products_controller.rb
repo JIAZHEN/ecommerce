@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   def index
+    @new_products = Product.last(3)
+    @sellers = Product.take(3)
   end
 
   def show

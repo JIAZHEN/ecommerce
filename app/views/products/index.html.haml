@@ -9,22 +9,12 @@
         .clear
       / start grids_of_3
       .grids_of_3
-        .grid1_of_3
-          %a{:href => "details.html"}
-            %img{:alt => "", :src => asset_path("pic1.jpg")}/
-            %h3 even & odd
-            %span.price $145,99
-        .grid1_of_3
-          %a{:href => "details.html"}
-            %img{:alt => "", :src => asset_path("pic2.jpg")}/
-            %h3 buffalo decollete
-            %span.price $185,99
-            %span.price1.bg on sale
-        .grid1_of_3
-          %a{:href => "details.html"}
-            %img{:alt => "", :src => asset_path("pic3.jpg")}/
-            %h3 even & odd
-            %span.price $145,99
+        - @new_products.each do |product|
+          .grid1_of_3
+            %a{:href => product_path(product)}
+              %img{:alt => "", :src => asset_path("pic1.jpg")}/
+              %h3= product.name
+              %span.price= "£#{product.price}"
         .clear
       .top_main
         %h2 best sellers of the month
@@ -32,22 +22,12 @@
         .clear
       / start grids_of_3
       .grids_of_3
-        .grid1_of_3
-          %a{:href => "details.html"}
-            %img{:alt => "", :src => asset_path("pic4.jpg")}/
-            %h3 buffalo decollete
-            %span.price $145,99
-        .grid1_of_3
-          %a{:href => "details.html"}
-            %img{:alt => "", :src => asset_path("pic5.jpg")}/
-            %h3 even & odd
-            %span.price $185,99
-        .grid1_of_3
-          %a{:href => "details.html"}
-            %img{:alt => "", :src => asset_path("pic6.jpg")}/
-            %h3 buffalo decollete
-            %span.price $145,99
-            %span.price1.bg1 out of stock
+        - @new_products.each do |product|
+          .grid1_of_3
+            %a{:href => product_path(product)}
+              %img{:alt => "", :src => asset_path("pic4.jpg")}/
+              %h3= product.name
+              %span.price= "£#{product.price}"
         .clear
       .clear
       / start grids_of_2
