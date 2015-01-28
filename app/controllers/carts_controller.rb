@@ -16,19 +16,4 @@ class CartsController < ApplicationController
     $redis.hdel current_user_cart, params[:product_id]
     render json: { count: current_user.cart_count, total: cart_total(cart_hash) }, status: 200
   end
-
-  private
-
-  def cart_hash
-    Hash[$redis.hgetall(current_user_cart).map{ |k, v| [k.to_i, v.to_i] }]
-  end
-
-  def current_user_cart
-    "cart#{current_user.id}"
-  end
-
-  def cart_total(cart_hash, products = nil)
-    products ||= Product.find(cart_hash.keys)
-    products.reduce(0) { |sum, product| sum + product.price * cart_hash[product.id] }
-  end
 end

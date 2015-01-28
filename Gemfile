@@ -15,6 +15,7 @@ gem "awesome_nested_set"
 gem "redis"
 gem "hiredis"
 gem "font-awesome-rails"
+gem "stripe",         :git => "https://github.com/stripe/stripe-ruby"
 
 group :development, :test do
   gem "sqlite3",                "1.3.9"

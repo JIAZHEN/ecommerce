@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150119203838) do
+ActiveRecord::Schema.define(version: 20150129211733) do
 
   create_table "brands", force: true do |t|
     t.string   "name"
@@ -33,6 +33,26 @@ ActiveRecord::Schema.define(version: 20150119203838) do
   add_index "categories", ["lft"], name: "index_categories_on_lft"
   add_index "categories", ["parent_id"], name: "index_categories_on_parent_id"
   add_index "categories", ["rgt"], name: "index_categories_on_rgt"
+
+  create_table "payment_statuses", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "payment_statuses", ["name"], name: "index_payment_statuses_on_name"
+
+  create_table "payments", force: true do |t|
+    t.integer  "user_id"
+    t.float    "amount"
+    t.float    "shipping_cost"
+    t.integer  "payment_status_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "payments", ["payment_status_id"], name: "index_payments_on_payment_status_id"
+  add_index "payments", ["user_id"], name: "index_payments_on_user_id"
 
   create_table "products", force: true do |t|
     t.string   "name"
