@@ -1,4 +1,14 @@
 FactoryGirl.define do
+  factory :payment_status do
+    name "MyString"
+  end
+
+  factory :payment do
+    user_id 1
+    amount 1.5
+    shipping_cost 1.5
+    payment_status_id 1
+  end
 
   factory :brand do
     sequence(:name) { |n| "brand_#{n}" }
