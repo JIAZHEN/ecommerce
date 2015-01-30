@@ -1,0 +1,88 @@
+- provide(:bg_title, "Account")
+
+.main_bg
+  .wrap
+    .main
+      .project
+        .cont.span_2_of_3
+          .about-left
+            %h3
+              %a{:href => "#"} Avatar
+          .blog-img
+            %a{:href => "project.html"}
+              %img{:alt => "", :src => asset_path("blog-img2.jpg")}/
+          .blog
+            .blogsidebar.span_1_of_blog
+              %ul.blog-list
+                %li
+                  Posted on
+                  %br>/
+                  January 20, 2014
+                %li
+                  Tags
+                  %br/
+                  = succeed "\u{a0}" do
+                    %a{:href => "#"} Website
+                  %a{:href => "#"} Design
+                %li
+                  Comments
+                  %br/
+                  %a{:href => "#"} 8
+            .cont.span_2_of_blog
+              %p.para Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              %p.para Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            .clear
+          .about-left
+            %h3
+              %a{:href => "#"} Payments
+          .blog
+            - current_user.payments.each do |payment|
+              .blogsidebar.span_1_of_blog
+                %ul.blog-list
+                  %li
+                    ID
+                    %br>/
+                    = payment.id
+                  %li
+                    Posted on
+                    %br>/
+                    = "#{time_ago_in_words(payment.created_at)} ago"
+                  %li
+                    Status
+                    %br/
+                    %a{:href => "#"}= payment.status.name.upcase
+                  %li
+                    Amount
+                    %br/
+                    %a{:href => "#"}= "£#{payment.amount}"
+              .cont.span_2_of_blog
+                %p.para Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                %p.para Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              .clear
+
+        .rsidebar.span_1_of_3
+          %ul.sidebar
+            %h3 Account
+            %li
+              Name:
+              = current_user.name
+            %li
+              Email:
+              = current_user.email
+
+          .archive
+            %h3 Address
+            %ul.sidebar
+              %li
+                %a{:href => "#"} Feb 2013
+              %li
+                %a{:href => ""} November 2013
+              %li
+                %a{:href => "#"} June 2013
+              %li
+                %a{:href => "#"} November 2013
+              %li
+                %a{:href => "#"} Feb 2013
+              %li
+                %a{:href => "#"} Jan 2014
+        .clear

@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }
 
+  has_many :payments
+
 
   def User.new_token
     SecureRandom.urlsafe_base64

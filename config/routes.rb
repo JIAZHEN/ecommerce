@@ -12,11 +12,12 @@ Rails.application.routes.draw do
   get   "contact" => "welcome#contact"
 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
   get     "login"     => "sessions#new"
   post    "login"     => "sessions#create"
   delete  "logout"    => "sessions#destroy"
   get     "register"  => "users#new"
+  get "account" => "users#show"
 
   resources :products,    only: [:show, :index]
 
