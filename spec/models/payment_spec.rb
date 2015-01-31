@@ -14,5 +14,6 @@ RSpec.describe Payment, :type => :model do
   it { is_expected.to respond_to(:payment_status_id) }
   it { is_expected.to respond_to(:user) }
   it { is_expected.to respond_to(:status) }
+  it { is_expected.to respond_to(:items) }
 
 end

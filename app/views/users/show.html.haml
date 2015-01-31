@@ -1,5 +1,8 @@
 - provide(:bg_title, "Account")
 
+- content_for :head do
+  = stylesheet_link_tag "users"
+
 .main_bg
   .wrap
     .main
@@ -56,16 +59,22 @@
                     %br/
                     %a{:href => "#"}= "£#{payment.amount}"
               .cont.span_2_of_blog
-                %table
+                %table.table.table-striped.table-hover
                   %thead
                     %tr
-                      %th.first Photo
-                      %th.second Qty
-                      %th.third Product
-                      %th.fourth Line Total
-                      %th.fifth Remove
-                %p.para Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                      %th Product
+                      %th Qty
+                      %th Price
+                      %th Line Total
+                  %tbody
+                    - payment.items.each do |item|
+                      %tr
+                        %td= item.product.name
+                        %td= item.qty
+                        %td= item.price
+                        %td= item.total
               .clear
+              %hr
 
         .rsidebar.span_1_of_3
           %ul.sidebar

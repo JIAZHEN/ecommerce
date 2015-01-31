@@ -1,4 +1,12 @@
 FactoryGirl.define do
+  factory :payment_item do
+    payment_id 1
+    product_id 1
+    price 1.5
+    qty 1
+    total 1.5
+  end
+
   factory :payment_status do
     name "MyString"
   end
