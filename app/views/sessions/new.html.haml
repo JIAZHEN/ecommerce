@@ -60,11 +60,6 @@
 
                 })();
           .registration_left
-            %a{:href => "#"}
-              .reg_fb
-                %img{:alt => "", :src => asset_path("facebook.png")}/
-                %i Login using Facebook
-                .clear
             .registration_form
               / Form
               = form_for(:session, url: login_path, html: {id: "registration_form"}) do |f|
