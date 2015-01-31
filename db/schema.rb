@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129211733) do
+ActiveRecord::Schema.define(version: 20150130232743) do
 
   create_table "brands", force: true do |t|
     t.string   "name"
@@ -75,6 +75,13 @@ ActiveRecord::Schema.define(version: 20150129211733) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_digest"
+    t.string   "addr_one"
+    t.string   "addr_two"
+    t.string   "city"
+    t.string   "country"
+    t.string   "postcode"
   end
+
+  add_index "users", ["postcode"], name: "index_users_on_postcode"
 
 end

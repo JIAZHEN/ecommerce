@@ -17,6 +17,11 @@ describe User, :type => :model do
   it { is_expected.to respond_to(:forget) }
   it { is_expected.to respond_to(:cart_count) }
   it { is_expected.to respond_to(:payments) }
+  it { is_expected.to respond_to(:addr_one) }
+  it { is_expected.to respond_to(:addr_two) }
+  it { is_expected.to respond_to(:city) }
+  it { is_expected.to respond_to(:country) }
+  it { is_expected.to respond_to(:postcode) }
 
   describe "#email" do
     context "is not present" do

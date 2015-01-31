@@ -46,7 +46,7 @@
                   %li
                     Posted on
                     %br>/
-                    = "#{time_ago_in_words(payment.created_at)} ago"
+                    %a{:href => "#"}= "#{time_ago_in_words(payment.created_at)} ago"
                   %li
                     Status
                     %br/
@@ -56,7 +56,14 @@
                     %br/
                     %a{:href => "#"}= "£#{payment.amount}"
               .cont.span_2_of_blog
-                %p.para Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                %table
+                  %thead
+                    %tr
+                      %th.first Photo
+                      %th.second Qty
+                      %th.third Product
+                      %th.fourth Line Total
+                      %th.fifth Remove
                 %p.para Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
               .clear
 
@@ -74,15 +81,18 @@
             %h3 Address
             %ul.sidebar
               %li
-                %a{:href => "#"} Feb 2013
+                Address one:
+                = current_user.addr_one
               %li
-                %a{:href => ""} November 2013
+                Address two:
+                = current_user.addr_two
               %li
-                %a{:href => "#"} June 2013
+                City:
+                = current_user.city
               %li
-                %a{:href => "#"} November 2013
+                Country:
+                = current_user.country
               %li
-                %a{:href => "#"} Feb 2013
-              %li
-                %a{:href => "#"} Jan 2014
+                Postcode:
+                = current_user.postcode
         .clear
