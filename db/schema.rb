@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150131104643) do
+ActiveRecord::Schema.define(version: 20150308101903) do
 
   create_table "brands", force: true do |t|
     t.string   "name"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20150131104643) do
     t.integer  "product_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "qty",                default: 99
   end
 
   add_index "products", ["name"], name: "index_products_on_name"

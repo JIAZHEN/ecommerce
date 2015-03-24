@@ -1,17 +1,26 @@
 class PaymentsController < ApplicationController
   def create
-    customer = Stripe::Customer.create(
-      :email => current_user.email,
-      :card  => params[:stripeToken]
-    )
     carts = cart_hash
     products ||= Product.find(carts.keys)
+    qty_errors = insufficient_items(carts, products).inject([]) do |errors, product|
+      errors << "#{product.name} has only #{product.qty} #{'unit'.pluralize(product.qty)} left\n"
+    end
+
+    if qty_errors
+      flash[:error] = qty_errors
+      return redirect_to cart_path
+    end
+
     amount = cart_total(carts, products)
 
     payment = Payment.create(user: current_user, amount: amount,
       payment_status_id: PaymentStatus::PROCESSING)
     record_items(payment, products, carts)
 
+    customer = Stripe::Customer.create(
+      :email => current_user.email,
+      :card  => params[:stripeToken]
+    )
     Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => (amount * 100).round,
@@ -37,5 +46,9 @@ class PaymentsController < ApplicationController
       PaymentItem.create(payment: payment, product: product,
         qty: qty, price: product.price, total: price * qty)
     end
+  end
+
+  def insufficient_items(carts, products)
+    products.select { |product| product.qty < carts[product.id] }
   end
 end

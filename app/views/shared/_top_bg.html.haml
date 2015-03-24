@@ -3,5 +3,6 @@
     .wrap
       .main_top
         %h4.style= yield(:bg_title)
-        - flash.each do |message_type, message|
-          %div{:class => "#{message_type} message"}= message
+        - flash.each do |message_type, messages|
+          - Array(messages).each do |message|
+            %div{:class => "#{message_type} message"}= message
