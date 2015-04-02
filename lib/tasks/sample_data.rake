@@ -2,15 +2,30 @@ namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
     ["success", "fail", "error", "processing"].each { |status| PaymentStatus.create(name: status) }
+    %(chair Couch Bed Daybed Futon Hammock Headboard Mattress table Chabudai
+      Desk Kotatsu Korsi Lowboy Pedestal Bookcase Cabinetry Ottoman
+      Shelving Wardrobe).each do |name|
+      Category.create!(name: name)
+    end
+    sub_categ_names = ["Bathroom cabinet", "Closet", "Cupboard",
+      "Curio cabinet", "Hutch","Hoosier cabinet",
+      "Kitchen cabinet", "Pantry", "Pie safe"]
 
-    20.times { Category.create!(name: Faker::Company.name) }
-    20.times { Brand.create!(name: Faker::Commerce.department) }
+    ["into", "corbusier", "Charles & Ray Eames", "Eero Saarinen",
+    "Jean Prouve", "Paul McCobb", "Ettore Sottsass", "knoll",
+    "Edward Wormley", "Milo Baughmann", "Charlotte Perriand",
+    "Ludwig Mies van der Rohe", "George Nelson". "Harry Bertoia",
+    "Marcel Breuer", "Issamu Noguchi", "maloof", "George Nakashima",
+    "Alvar Aalto", "Gaetano Pesce"].each do |name|
+      Brand.create!(name: name)
+    end
+
     categs = Category.take(20)
     brands = Brand.take(20)
 
     3.times do
       categs.each do |categ|
-        Category.create!(name: Faker::Company.name).move_to_child_of(categ)
+        Category.create!(name: sub_categ_names.sample).move_to_child_of(categ)
       end
     end
 
