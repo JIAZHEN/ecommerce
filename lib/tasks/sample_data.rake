@@ -14,7 +14,7 @@ namespace :db do
     ["into", "corbusier", "Charles & Ray Eames", "Eero Saarinen",
     "Jean Prouve", "Paul McCobb", "Ettore Sottsass", "knoll",
     "Edward Wormley", "Milo Baughmann", "Charlotte Perriand",
-    "Ludwig Mies van der Rohe", "George Nelson". "Harry Bertoia",
+    "Ludwig Mies van der Rohe", "George Nelson", "Harry Bertoia",
     "Marcel Breuer", "Issamu Noguchi", "maloof", "George Nakashima",
     "Alvar Aalto", "Gaetano Pesce"].each do |name|
       Brand.create!(name: name)
