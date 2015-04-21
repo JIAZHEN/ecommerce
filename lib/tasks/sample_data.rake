@@ -2,7 +2,7 @@ namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
     ["success", "fail", "error", "processing"].each { |status| PaymentStatus.create(name: status) }
-    %(chair Couch Bed Daybed Futon Hammock Headboard Mattress table Chabudai
+    %w(chair Couch Bed Daybed Futon Hammock Headboard Mattress table Chabudai
       Desk Kotatsu Korsi Lowboy Pedestal Bookcase Cabinetry Ottoman
       Shelving Wardrobe).each do |name|
       Category.create!(name: name)
